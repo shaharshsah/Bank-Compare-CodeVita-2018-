@@ -1,0 +1,44 @@
+import java.util.*;
+import java.lang.*;
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner in = new Scanner(System.in);
+      int p=in.nextInt();
+      int time=in.nextInt();
+      
+      int s1=in.nextInt();
+      System.out.println("enter the slab for A: "+s1);
+      
+      int s2=in.nextInt();
+      System.out.println("enter the slab for B: "+s2);
+
+      int emiA=cal(p,time,s1);
+      int emiB=cal(p,time,s2);
+      if(emiA>emiB)
+      System.out.println("bank A");
+      else
+       System.out.println("bank B");
+    }
+    static int cal(int p, int time,int s)
+    {
+        Scanner in = new Scanner(System.in);
+        double k=0;
+        for(int i=0; i<s; i++)
+        {
+          System.out.println("enter the values "+i+1);
+
+            int prd=in.nextInt();
+            double rate=in.nextDouble();
+            
+            double h=p*rate;
+            double j=Math.pow((1+rate),(prd*12));
+            k+=h/(1-(1/j));
+            
+            
+        }
+        int y=(int)(k);
+        
+        return y;
+        
+    }
+}
